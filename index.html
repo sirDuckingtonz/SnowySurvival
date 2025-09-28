@@ -5,191 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Snowy Survival</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
-
+    /* General Styles */
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Arial', sans-serif;
+      background: url('https://cdnb.artstation.com/p/assets/images/images/030/880/074/large/evenoteverstorm-minecraft-landscape-10.jpg?1604044216') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
-      overflow-x: hidden;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    h1, h2, h3 {
+      margin: 0;
     }
 
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #00f260;
-    }
-
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 90vh;
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
       text-align: center;
-      flex-direction: column;
-      background: url('dercpm4.jpg') center/cover no-repeat;
-      position: relative;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
+    /* Main Title */
+    h1 {
+      font-size: 4em;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+      margin-bottom: 40px;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    .btn {
+    /* Button Style */
+    .copy-ip-btn {
       padding: 15px 35px;
+      font-size: 1.2em;
       border: none;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
+      border-radius: 15px;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      margin-bottom: 50px;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0, 242, 96, 0.6);
+    .copy-ip-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
 
-    .section {
-      padding: 80px 60px;
-      text-align: center;
+    /* Staff Section */
+    #staff {
+      padding: 50px 20px;
+      background: rgba(30, 30, 47, 0.85);
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      max-width: 700px;
+      margin: auto;
     }
 
-    .section h3 {
-      font-size: 2.2rem;
+    #staff h2 {
+      font-size: 2.5em;
       margin-bottom: 30px;
-      color: #00f260;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
     }
 
-    .card-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    .staff-member {
+      display: inline-block;
+      background: #2c2c44;
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin: 10px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 30px;
-      width: 300px;
-      transition: transform 0.3s ease, background 0.3s ease;
+    .staff-member h3 {
+      font-size: 1.8em;
+      margin-bottom: 5px;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-      background: rgba(255,255,255,0.1);
+    .staff-member p {
+      font-size: 1.2em;
+      color: #a0a0c0;
+      margin: 0;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
-      background: rgba(0,0,0,0.6);
+      color: #ccc;
       margin-top: 50px;
+      font-size: 0.9em;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
   </style>
 </head>
 <body>
-  <header>
+
+  <div class="container">
     <h1>Snowy Survival</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#join">Join</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Welcome to Snowy Survival</h2>
-      <p>Pure vanilla Minecraft survival — no economy, no gimmicks, just blocks and you.</p>
-      <button class="btn" onclick="copyIP()">Copy IP</button>
-    </div>
-  </section>
+    <button class="copy-ip-btn" onclick="copyIP()">Copy Server IP</button>
 
-  <section class="section" id="about">
-    <h3>About Our Server</h3>
-    <p>Snowy Survival is a simple and pure vanilla experience. Gather, craft, survive, and thrive with no extra plugins getting in the way.</p>
-  </section>
-
-  <section class="section" id="features">
-    <h3>Features</h3>
-    <div class="card-container">
-      <div class="card">
-        <h4>⚔ Survival</h4>
-        <p>True vanilla gameplay. No shops, no pay-to-win, no distractions.</p>
+    <section id="staff">
+      <h2>Staff Team</h2>
+      <div class="staff-member">
+        <h3>SnowyStaryyy</h3>
+        <p>Owner</p>
       </div>
-      <div class="card">
-        <h4>🏰 Community</h4>
-        <p>Friendly players who just enjoy the basics of Minecraft together.</p>
-      </div>
-      <div class="card">
-        <h4>🌍 Exploration</h4>
-        <p>A fresh world waiting for you to carve out your adventure.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="join">
-    <h3>Join Us</h3>
-    <p>IP: <strong id="server-ip">213.133.99.174:43439</strong></p>
-  </section>
+    </section>
+  </div>
 
   <footer>
-    <p>© 2025 Snowy Survival. All rights reserved.</p>
+    © 2025 Snowy Survival
   </footer>
 
   <script>
     function copyIP() {
-      const ip = document.getElementById('server-ip').innerText;
-      navigator.clipboard.writeText(ip).then(() => alert('Server IP copied!'));
+      const ip = "213.133.99.174:43439";
+      navigator.clipboard.writeText(ip).then(() => {
+        alert("Server IP copied to clipboard: " + ip);
+      }).catch(err => {
+        alert("Failed to copy IP: " + err);
+      });
     }
   </script>
 </body>
 </html>
+
