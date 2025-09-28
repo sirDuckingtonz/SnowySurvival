@@ -42,6 +42,7 @@
       font-weight: 600;
       color: #fff;
       transition: color 0.3s ease;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -52,7 +53,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 90vh;
+      height: 80vh;
       text-align: center;
       flex-direction: column;
       background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3efdd708-75dd-4066-8d2a-dcc58e445b41/dercpm4-4d90e2b1-0099-47d4-a6cb-0e12b0e7d7eb.jpg') center/cover no-repeat;
@@ -62,11 +63,11 @@
     .hero::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.6);
     }
 
     .hero-content {
@@ -96,9 +97,35 @@
       box-shadow: 0 0 20px rgba(0, 242, 96, 0.6);
     }
 
-    .section {
-      padding: 80px 60px;
+    /* Tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0 20px;
+      cursor: pointer;
+    }
+
+    .tab {
+      padding: 12px 25px;
+      margin: 0 10px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .tab.active, .tab:hover {
+      background: linear-gradient(90deg, #00f260, #0575e6);
+      box-shadow: 0 0 15px rgba(0,242,96,0.5);
+    }
+
+    section {
+      display: none;
+      padding: 60px 40px;
       text-align: center;
+    }
+
+    section.active {
+      display: block;
     }
 
     .section h3 {
@@ -115,50 +142,76 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
       border-radius: 20px;
       padding: 30px;
       width: 300px;
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 25px rgba(0,242,96,0.6);
+    }
+
+    /* Staff Section */
+    .staff-member {
+      display: inline-block;
+      background: rgba(255,255,255,0.05);
+      padding: 20px 35px;
+      border-radius: 15px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .staff-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,242,96,0.7);
+    }
+
+    .staff-member h4 {
+      margin:0 0 5px;
+      font-size: 1.5rem;
+    }
+
+    .staff-member p {
+      margin:0;
+      color: #a0a0c0;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
       margin-top: 50px;
     }
+
   </style>
 </head>
 <body>
+
   <header>
     <h1>Snowy Survival</h1>
     <nav>
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#join">Join</a>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('features')">Features</a>
+      <a onclick="showSection('staff')">Staff</a>
+      <a onclick="showSection('join')">Join</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <!-- Hero / Home -->
+  <section id="home" class="active hero">
     <div class="hero-content">
       <h2>Welcome to Snowy Survival</h2>
       <p>Pure vanilla Minecraft survival — no economy, no gimmicks, just blocks and you.</p>
-      <button class="btn">Join Now</button>
+      <button class="btn" onclick="copyIP()">Copy Server IP</button>
     </div>
   </section>
 
-  <section class="section" id="about">
-    <h3>About Our Server</h3>
-    <p>Snowy Survival is a simple and pure vanilla experience. Gather, craft, survive, and thrive with no extra plugins getting in the way.</p>
-  </section>
-
-  <section class="section" id="features">
+  <!-- Features -->
+  <section id="features" class="section">
     <h3>Features</h3>
     <div class="card-container">
       <div class="card">
@@ -176,14 +229,38 @@
     </div>
   </section>
 
-  <section class="section" id="join">
+  <!-- Staff -->
+  <section id="staff" class="section">
+    <h3>Staff Team</h3>
+    <div class="card-container">
+      <div class="staff-member">
+        <h4>SnowyStaryyy</h4>
+        <p>Owner</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section id="join" class="section">
     <h3>Join Us</h3>
     <p>IP: <strong>213.133.99.174:43439</strong></p>
-    <button class="btn">Copy IP</button>
+    <button class="btn" onclick="copyIP()">Copy IP</button>
   </section>
 
   <footer>
     <p>© 2025 Snowy Survival. All rights reserved.</p>
   </footer>
+
+  <script>
+    function copyIP() {
+      const ip = "213.133.99.174:43439";
+      navigator.clipboard.writeText(ip).then(()=>alert("IP copied: "+ip));
+    }
+
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec=>sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
