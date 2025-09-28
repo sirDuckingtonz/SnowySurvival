@@ -56,7 +56,7 @@
       height: 80vh;
       text-align: center;
       flex-direction: column;
-      background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3efdd708-75dd-4066-8d2a-dcc58e445b41/dercpm4-4d90e2b1-0099-47d4-a6cb-0e12b0e7d7eb.jpg') center/cover no-repeat;
+      background: url('https://cdnb.artstation.com/p/assets/images/images/030/880/074/large/evenoteverstorm-minecraft-landscape-10.jpg?1604044216') center/cover no-repeat;
       position: relative;
     }
 
@@ -90,6 +90,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 15px;
     }
 
     .btn:hover {
@@ -103,11 +104,12 @@
       justify-content: center;
       margin: 40px 0 20px;
       cursor: pointer;
+      flex-wrap: wrap;
     }
 
     .tab {
       padding: 12px 25px;
-      margin: 0 10px;
+      margin: 5px 10px;
       background: rgba(0,0,0,0.5);
       border-radius: 10px;
       transition: all 0.3s ease;
@@ -122,10 +124,16 @@
       display: none;
       padding: 60px 40px;
       text-align: center;
+      animation: fadeIn 0.5s ease;
     }
 
     section.active {
       display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
     }
 
     .section h3 {
@@ -141,33 +149,18 @@
       flex-wrap: wrap;
     }
 
-    .card {
+    .card, .staff-member {
       background: rgba(255,255,255,0.05);
       border-radius: 20px;
       padding: 30px;
-      width: 300px;
+      width: 280px;
       transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .card:hover {
+    .card:hover, .staff-member:hover {
       transform: translateY(-10px);
       background: rgba(255,255,255,0.1);
       box-shadow: 0 0 25px rgba(0,242,96,0.6);
-    }
-
-    /* Staff Section */
-    .staff-member {
-      display: inline-block;
-      background: rgba(255,255,255,0.05);
-      padding: 20px 35px;
-      border-radius: 15px;
-      margin: 10px;
-      transition: all 0.3s ease;
-    }
-
-    .staff-member:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0,242,96,0.7);
     }
 
     .staff-member h4 {
@@ -194,14 +187,14 @@
   <header>
     <h1>Snowy Survival</h1>
     <nav>
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('features')">Features</a>
-      <a onclick="showSection('staff')">Staff</a>
-      <a onclick="showSection('join')">Join</a>
+      <a class="tab active" onclick="showSection('home')">Home</a>
+      <a class="tab" onclick="showSection('features')">Features</a>
+      <a class="tab" onclick="showSection('staff')">Staff</a>
+      <a class="tab" onclick="showSection('join')">Join</a>
     </nav>
   </header>
 
-  <!-- Hero / Home -->
+  <!-- Home / Hero -->
   <section id="home" class="active hero">
     <div class="hero-content">
       <h2>Welcome to Snowy Survival</h2>
@@ -260,7 +253,11 @@
     function showSection(id) {
       document.querySelectorAll('section').forEach(sec=>sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+
+      document.querySelectorAll('nav a').forEach(tab=>tab.classList.remove('active'));
+      event.currentTarget.classList.add('active');
     }
   </script>
 </body>
 </html>
+
