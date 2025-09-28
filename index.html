@@ -25,6 +25,28 @@
       text-align: center;
     }
 
+    /* Tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      cursor: pointer;
+    }
+
+    .tab {
+      padding: 15px 30px;
+      margin: 0 5px;
+      background: rgba(30,30,47,0.85);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .tab:hover, .tab.active {
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
     /* Main Title */
     h1 {
       font-size: 4em;
@@ -51,6 +73,16 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
 
+    /* Sections */
+    section {
+      display: none;
+      padding: 20px 0;
+    }
+
+    section.active {
+      display: block;
+    }
+
     /* Staff Section */
     #staff {
       padding: 50px 20px;
@@ -74,6 +106,12 @@
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
       margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .staff-member:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(110,142,251,0.8);
     }
 
     .staff-member h3 {
@@ -103,13 +141,24 @@
   <div class="container">
     <h1>Snowy Survival</h1>
 
-    <button class="copy-ip-btn" onclick="copyIP()">Copy Server IP</button>
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" onclick="showSection('home')">Home</div>
+      <div class="tab" onclick="showSection('staff')">Staff</div>
+    </div>
+
+    <!-- Sections -->
+    <section id="home" class="active">
+      <button class="copy-ip-btn" onclick="copyIP()">Copy Server IP</button>
+    </section>
 
     <section id="staff">
-      <h2>Staff Team</h2>
-      <div class="staff-member">
-        <h3>SnowyStaryyy</h3>
-        <p>Owner</p>
+      <div id="staff-container">
+        <h2>Staff Team</h2>
+        <div class="staff-member">
+          <h3>SnowyStaryyy</h3>
+          <p>Owner</p>
+        </div>
       </div>
     </section>
   </div>
@@ -119,6 +168,7 @@
   </footer>
 
   <script>
+    // Copy server IP
     function copyIP() {
       const ip = "213.133.99.174:43439";
       navigator.clipboard.writeText(ip).then(() => {
@@ -127,7 +177,18 @@
         alert("Failed to copy IP: " + err);
       });
     }
+
+    // Tab switching
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      const tabs = document.querySelectorAll('.tab');
+      sections.forEach(sec => sec.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
   </script>
 </body>
 </html>
+
 
