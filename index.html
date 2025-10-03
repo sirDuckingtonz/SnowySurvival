@@ -1,166 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snowy Survival</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snowy Survival</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      overflow-x: hidden;
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  overflow-x: hidden;
+}
 
-    /* Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00f260, #0575e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s ease;
+}
 
-    nav a:hover {
-      color: #00f260;
-    }
+nav a:hover {
+  color: #00f260;
+}
 
-    /* Hero */
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 80vh;
-      text-align: center;
-      flex-direction: column;
-      background: url('https://cdnb.artstation.com/p/assets/images/images/030/880/074/large/evenoteverstorm-minecraft-landscape-10.jpg?1604044216') center/cover no-repeat;
-      position: relative;
-    }
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  flex-direction: column;
+  background: url('https://cdnb.artstation.com/p/assets/images/images/030/880/074/large/evenoteverstorm-minecraft-landscape-10.jpg?1604044216') center/cover no-repeat;
+  position: relative;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background: rgba(0,0,0,0.6);
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
 
-    .btn {
-      padding: 15px 35px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 15px;
-    }
+.btn {
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #00f260, #0575e6);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 15px;
+  display: inline-block;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0,242,96,0.6);
-    }
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,242,96,0.6);
+}
 
-    /* Sections */
-    section {
-      padding: 80px 40px;
-      text-align: center;
-    }
+/* Sections */
+section {
+  padding: 80px 40px;
+  text-align: center;
+}
 
-    .section h3 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      color: #00f260;
-    }
+.section h3 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #00f260;
+}
 
-    /* Card styling */
-    .card-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+/* Card styling */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
-    .card, .staff-member {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 30px;
-      width: 280px;
-      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    }
+.card, .staff-member {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 30px;
+  width: 280px;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .card:hover, .staff-member:hover {
-      transform: translateY(-10px);
-      background: rgba(255,255,255,0.1);
-      box-shadow: 0 0 25px rgba(0,242,96,0.6);
-    }
+.card:hover, .staff-member:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 0 25px rgba(0,242,96,0.6);
+}
 
-    .staff-member h4 {
-      margin:0 0 5px;
-      font-size: 1.5rem;
-    }
+.staff-member h4 {
+  margin:0 0 5px;
+  font-size: 1.5rem;
+}
 
-    .staff-member p {
-      margin:0;
-      color: #a0a0c0;
-    }
+.staff-member p {
+  margin:0;
+  color: #a0a0c0;
+}
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      margin-top: 50px;
-    }
-
-    #status {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-  </style>
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  margin-top: 50px;
+}
+</style>
 </head>
 <body>
 
@@ -179,7 +174,8 @@
     <h2>Welcome to Snowy Survival</h2>
     <p>Pure vanilla Minecraft survival — no economy, no gimmicks, just blocks and you.</p>
     <button class="btn" onclick="copyIP()">Copy Server IP</button>
-    <div id="status">Checking server status...</div>
+    <br>
+    <button class="btn" onclick="joinDiscord()">Join our Discord</button>
   </div>
 </section>
 
@@ -215,6 +211,7 @@
   <h3>Join Us</h3>
   <p>IP: <strong>213.133.99.174:43439</strong></p>
   <button class="btn" onclick="copyIP()">Copy IP</button>
+  <button class="btn" onclick="joinDiscord()">Join Discord</button>
 </section>
 
 <footer>
@@ -227,31 +224,9 @@ function copyIP() {
   navigator.clipboard.writeText(ip).then(()=>alert("IP copied: "+ip));
 }
 
-async function checkStatus() {
-  const ip = "213.133.99.174";
-  const port = "43439";
-  const statusEl = document.getElementById("status");
-
-  try {
-    const res = await fetch(`https://api.mcsrvstat.us/2/${ip}:${port}`);
-    const data = await res.json();
-
-    if (data.online) {
-      const players = data.players?.online ?? 0;
-      statusEl.textContent = `Online ✅ | Players: ${players}`;
-      statusEl.style.color = "#00f260";
-    } else {
-      statusEl.textContent = "Offline ❌";
-      statusEl.style.color = "red";
-    }
-  } catch (err) {
-    statusEl.textContent = "Error ❌";
-    statusEl.style.color = "orange";
-  }
+function joinDiscord() {
+  window.open("https://discord.gg/w2pwYhZb", "_blank");
 }
-
-checkStatus();
-setInterval(checkStatus, 15000); // refresh every 15s
 </script>
 
 </body>
